@@ -6,21 +6,20 @@ creatingUser(){
 }
 
 creatingFolder(){
-    mkdir $1 
+    sudo mkdir $1 
     cd $1
     echo "new folder named $1 is created"
 }
 
 creatingFile(){
-    touch $1.txt
+    sudo touch $1.txt
     echo "new file named $1 is created"
     cd ..
-    
+    pwd
 }
 
 settingPermissions(){
-    pwd
-    sudo chown $1:$1 $2
+    sudo chown -R $1:$1 $2
 }
 
 echo "WELCOME DUDE"
@@ -36,7 +35,7 @@ do
     read -p "Enter the file name: " useriFile
     creatingFile $useriFile
 
-    settingPermissions $userNamei $useriFolder
+    settingPermissions $userNamei $useriFolder $useriFile
     
 done
 
