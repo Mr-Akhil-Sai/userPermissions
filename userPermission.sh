@@ -15,13 +15,12 @@ creatingFile(){
     touch $1.txt
     echo "new file named $1 is created"
     cd ..
+    
 }
 
 settingPermissions(){
     pwd
-    cd $3
-    pwd
-    # chown $1 $2
+    sudo chown $1:$1 $2
 }
 
 echo "WELCOME DUDE"
@@ -37,7 +36,7 @@ do
     read -p "Enter the file name: " useriFile
     creatingFile $useriFile
 
-    settingPermissions $userNamei $useriFile $useriFolder
+    settingPermissions $userNamei $useriFolder
     
 done
 
